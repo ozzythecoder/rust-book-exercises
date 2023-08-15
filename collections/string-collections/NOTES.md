@@ -65,5 +65,37 @@ let s3 = String::from("baz");
 
 let s = format!("The {foo}, the {bar}, and the {baz}");
 ```
+This is easier to read, and the format! macro doesn't take ownership of any of the strings used.
 
+**Indexing into strings**
+
+Long story short, Rust doesn't support indexing into strings.
+
+```rust
+let s = "Hello";
+let h = &s1[0]; // "String" cannot be indexed by "{integer}"
+```
+
+This is because not all UTF-8 encoded strings are one-byte-per-character, and not every unicode character is a "letter".
+Not allowing indexing prevents bugs that could arise from trying to index into a string in, for example, Cyrillic or Devanagari.
+
+We can use string slices, which will pull a range of bytes: `let h = &s1[0..2]`
+However, this code will panic if we try to index into a partial character.
+This should be used with caution.
+(This probably won't come up for me right now, since I'm not working with non-english characters. If I build something in swedish, this could change however.)
+
+**Iterating over strings**
+
+```rust
+for c in "Зд".chars() {
+    println!("{c}");
+} // Will print З and д respectively
+```
+
+Calling `chars()` separates the string into its chars.
+(I suspect an alternative to indexing would be to iterate over a string and push its chars into a `Vec<char>`, then calling the index of that Vec.)
+
+### Summary
+
+Strings are not simple anywhere, turns out. Strings in Rust have to be handled correctly up-front, rather than have it abstracted away by the language itself.
 
