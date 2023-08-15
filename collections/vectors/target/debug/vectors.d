@@ -1,0 +1,1 @@
+/Users/augustmcallister/CODING/tutorials/rust-programming-language/collections/vectors/target/debug/vectors: /Users/augustmcallister/CODING/tutorials/rust-programming-language/collections/vectors/src/main.rs
