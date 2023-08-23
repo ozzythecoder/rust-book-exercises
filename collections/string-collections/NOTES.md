@@ -63,7 +63,7 @@ let s1 = String::from("foo");
 let s2 = String::from("bar");
 let s3 = String::from("baz");
 
-let s = format!("The {foo}, the {bar}, and the {baz}");
+let s = format!("The {s1}, the {s2}, and the {s3}");
 ```
 This is easier to read, and the format! macro doesn't take ownership of any of the strings used.
 
