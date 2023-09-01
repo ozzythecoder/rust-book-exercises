@@ -1,12 +1,12 @@
 use std::collections::HashMap;
 
-fn main() {
+fn find_median_and_mode() {
 
     // Challenge: Given a list of integers, use a vector 
     // and return the median (when sorted, the value in the middle position)
     // and mode (the value that occurs most often; a hash map will be helpful here) of the list.
     let ints = vec![1, 1, 1, 3, 4, 4, 5, 7];
-    println!("{:?}", ints);
+    println!("Finding values from: {:?}", &ints);
 
     let mut sum = 0;
     for i in &ints {
@@ -35,4 +35,8 @@ fn main() {
     println!("Sum is {}", sum);
     println!("Mean average is {}", mean_average);
     println!("Mode is {}", mode);
+}
+
+fn main() {
+    find_median_and_mode();
 }
