@@ -7,14 +7,20 @@ fn convert_strings_to_pig_latin() {
     // Convert strings to pig latin.
     // Keep in mind the details about UTF-8 encoding!
 
-    let s = String::from("Test string");
+    let s = String::from("Est string");
     let mut m: Vec<String> = vec![];
 
+    let vowels = vec!["a", "e", "i", "o", "u"];
+
     for word in s.split_whitespace() {
-        // Todo: Handle first words as vowels
-        let mut latin_word = word[1..].to_owned();
         let first = &word[0..1];
-        latin_word = latin_word + "-" + first + "ay";
+        let latin_word: String;
+        if vowels.iter().any(|&l| l == first.to_lowercase()) {
+            latin_word = word.to_owned() + "-hay";
+        } else {
+            latin_word = word[1..].to_owned() + "-" + first + "ay";
+        }
+        
         m.push(latin_word);
     }
 
